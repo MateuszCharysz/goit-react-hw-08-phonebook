@@ -14,3 +14,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>,
 );
+
+//TODO make shared layout for bar
+//TODO zrobić menu użytkownika dla zalogowanego użytkownika wyświetlające mail + logout
+//TODO trasy
+// /register - publiczna trasa rejestracji nowego użytkownika z formularzem
+// /login - publiczna trasa logowania istniejącego użytkownika z formularzem
+// /contacts - prywatna trasa do pracy z listą kontaktów użytkownika
+
+//TODO zrobić home do ... logowania?
+//TODO przygotować api do współpracy z backendem
+//TODO przygotować redux do współpracy z logowaniem\
+//TODO ostylować to
+//TODO zrobić RWD (responsive web design (media querry itd))
+//TODO zrobić lazyloading i suspensy
+//TODO zmienić filter -  zeby nie był włożony w redux ale jako stan (use state)
+//TODO zrobić ładne loadery z opisami..
+//TODO zrobić opisy w formularzach do accesibility
+//TODO zrobić tryb jasny i ciemny
