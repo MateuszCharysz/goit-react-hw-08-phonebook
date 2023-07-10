@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Input.module.css';
+import { nanoid } from '@reduxjs/toolkit';
 
 const Input = ({
   label,
@@ -11,8 +12,9 @@ const Input = ({
   funcChange,
   stateField,
 }) => {
+  const idForLabelAndInput = nanoid();
   return (
-    <label className={css.label}>
+    <label className={css.label} htmlFor={idForLabelAndInput}>
       {label}
       <input
         className={css.input}
@@ -23,6 +25,7 @@ const Input = ({
         required
         onChange={funcChange}
         value={stateField}
+        id={idForLabelAndInput}
       />
     </label>
   );

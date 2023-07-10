@@ -13,7 +13,7 @@ const SharedLayout = () => {
               isActive ? css.active : css.header__link
             }
           >
-            Home
+            Phonebook
           </NavLink>
           <NavLink
             to="/register"
