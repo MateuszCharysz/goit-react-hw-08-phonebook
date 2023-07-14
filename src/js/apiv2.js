@@ -26,6 +26,12 @@ const contApi = axios.create({
   timeout: 10000,
 });
 
+const setAuthHeader = token =>
+  (contApi.defaults.headers.common['Authorisation'] = `Bearer ${token}`);
+
+  const clearAuthHeader = token =>
+    contApi.defaults.headers.common['Authorisation'] = '';
+
 const contApiGet = async () => {
   const response = await contApi.get('/contacts').catch(e => errorHandler(e));
   return response.data;
@@ -56,6 +62,7 @@ const contApiUserCreate = async ObjNameEmailPass => {
   const response = await contApi
     .post('/users/signup', ObjNameEmailPass)
     .catch(e => errorHandler(e));
+    setAuthHeader(response.data.token);
   return response.data;
 };
 
@@ -63,6 +70,7 @@ const contApiUserLogin = async ObjEmailPass => {
   const response = await contApi
     .post('/users/login', ObjEmailPass)
     .catch(e => errorHandler(e));
+    setAuthHeader(response.data.token)
   return response.data;
 };
 
@@ -71,6 +79,7 @@ const contApiUserLogout = async () => {
   const response = await contApi
     .post('/users/logout')
     .catch(e => errorHandler(e));
+    clearAuthHeader()
   return response.data;
 };
 

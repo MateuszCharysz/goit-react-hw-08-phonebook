@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import UserForm from 'components/userForm/UserForm';
+import UserForm from 'components/userForm/UserFormLog';
 
 const Register = () => {
   return (

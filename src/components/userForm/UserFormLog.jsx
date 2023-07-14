@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Input from 'components/input/input';
 
-const UserForm = ({typeOfForm}) => {
+const UserFormLog = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = formType => {};
+  const handleSubmitLog = () => {};
 
   const handleChangeUser = e => {
     const { name, value } = e.target;
@@ -17,7 +17,7 @@ const UserForm = ({typeOfForm}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(typeOfForm)}>
+    <form onSubmit={handleSubmitLog}>
       <Input
         label="Email"
         type="email"
@@ -38,13 +38,9 @@ const UserForm = ({typeOfForm}) => {
         funcChange={handleChangeUser}
         stateField={password}
       />
-      {/* <label for="email">Email </label>
-      <input type="email" name={email} id="email" required></input>
-      <label for="password">Password</label>
-      <input type="password" name={password} id="password" required></input> */}
-      <button type="submit">{typeOfForm}</button>
+      <button type="submit">Log In</button>
     </form>
   );
 };
 //TODO valid invalid CSS for inputs
-export default UserForm;
+export default UserFormLog;

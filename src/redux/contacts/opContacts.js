@@ -36,6 +36,6 @@ const deleteContact = createAsyncThunk(
     }
   },
 );
-const operations = { fetchContactsToDisplay, postContactOnList, deleteContact };
+const opContacts = { fetchContactsToDisplay, postContactOnList, deleteContact };
 
-export default operations;
+export default opContacts;

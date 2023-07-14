@@ -1,12 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import UserForm from 'components/userForm/UserForm';
+import UserFormLog from 'components/userForm/UserFormLog';
 
 const Login = () => {
   return (
     <>
-      <Helmet>Login</Helmet>
-      <UserForm typeOfForm="Login"></UserForm>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+      <UserFormLog></UserFormLog>
     </>
   );
 };

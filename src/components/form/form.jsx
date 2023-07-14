@@ -4,7 +4,7 @@ import Input from 'components/input/input';
 import Button from 'components/button/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contactsselectors';
-import operations from 'redux/contacts/operations';
+import operations from 'redux/contacts/opContacts';
 import { nanoid } from '@reduxjs/toolkit';
 
 export const Form = () => {
@@ -15,7 +15,7 @@ export const Form = () => {
 
   const submitForm = () => {
     if (contacts.filter(contact => contact.name === name).length !== 1) {
-      let contact ={name: name, number: number, id: nanoid()}
+      let contact = { name: name, number: number, id: nanoid() };
       dispatch(operations.postContactOnList(contact));
     } else {
       alert(`${name} is already in contacts.`);
