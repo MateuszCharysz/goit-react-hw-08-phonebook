@@ -8,10 +8,10 @@ import {
   selectFiltered,
   selectError,
   selectLoading,
-} from '../redux/selectors';
+} from '../redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../redux/filterSlice';
-import operations from 'redux/operations';
+import { setFilter } from '../redux/contacts/filterSlice';
+import operations from 'redux/contacts/operations';
 
 export const App = () => {
   const dispatch = useDispatch();

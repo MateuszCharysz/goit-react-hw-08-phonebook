@@ -3,8 +3,8 @@ import css from './Form.module.css';
 import Input from 'components/input/input';
 import Button from 'components/button/button';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/selectors';
-import operations from 'redux/operations';
+import { selectContacts } from '../../redux/contactsselectors';
+import operations from 'redux/contacts/operations';
 import { nanoid } from '@reduxjs/toolkit';
 
 export const Form = () => {
