@@ -13,8 +13,8 @@ const Appv2 = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Welcome />} />
-          <Route path="register" element={<Login />} />
-          <Route path="login" element={<Register />} />
+          <Route path="register" element={<Register/>} />
+          <Route path="login" element={<Login/>} />
           <Route path="contacts" element={<Contacts />} />
         </Route>
         <Route path="*" element={<SharedLayout />} />

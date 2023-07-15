@@ -3,7 +3,7 @@ import css from './Form.module.css';
 import Input from 'components/input/input';
 import Button from 'components/button/button';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/contactsselectors';
+import { selectContacts } from '../../redux/contacts/selectors';
 import operations from 'redux/contacts/opContacts';
 import { nanoid } from '@reduxjs/toolkit';
 

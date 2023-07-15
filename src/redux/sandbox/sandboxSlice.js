@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import operations from './opContacts';
 
-const contactsInitialState = { contacts: [], isLoading: false, error: null };
+const sandboxInitialState = { contacts: [], isLoading: false, error: null };
 
 const handlePending = state => {
   state.isLoading = true;
@@ -16,9 +16,9 @@ const handleFulfiledPartly = state => {
   state.error = null;
 };
 
-const contactsSlice = createSlice({
-  name: 'contacts',
-  initialState: contactsInitialState,
+const sandboxSlice = createSlice({
+  name: 'sandbox',
+  initialState: sandboxInitialState,
   extraReducers: builder => {
     builder
       .addCase(operations.fetchContactsToDisplay.pending, handlePending)
@@ -45,4 +45,4 @@ const contactsSlice = createSlice({
   },
 });
 
-export const contactsReducer = contactsSlice.reducer;
+export const sandboxReducer = sandboxSlice.reducer;

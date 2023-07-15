@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import apiv2, { getPromiseData } from '../../js/apiv2';
 
 const register = createAsyncThunk('users/signup', async (regCred, thunkAPI) => {
+  console.log(regCred, 'operations')
   try {
     const response = await getPromiseData(apiv2.contApiUserCreate(regCred));
     return response;

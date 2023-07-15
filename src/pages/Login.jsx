@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import UserFormLog from 'components/userForm/UserFormLog';
+// import UserFormLog from 'components/userFormLog/UserFormLog';
+import UserForm from 'components/userForm/UserForm';
 
 const Login = () => {
   return (
@@ -8,7 +9,8 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <UserFormLog></UserFormLog>
+      <UserForm typeOfForm={'Login'}></UserForm>
+      {/* <UserFormLog></UserFormLog> */}
     </>
   );
 };

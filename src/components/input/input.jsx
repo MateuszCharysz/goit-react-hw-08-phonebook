@@ -35,7 +35,7 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   dataName: PropTypes.string.isRequired,
-  validation: PropTypes.string.isRequired,
+  validation: PropTypes.string,
   title: PropTypes.string.isRequired,
   funcChange: PropTypes.func.isRequired,
   stateField: PropTypes.string.isRequired,

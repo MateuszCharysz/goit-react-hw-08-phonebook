@@ -10,6 +10,7 @@ const initialState = {
 };
 
 const handlePending = state => {
+  console.log('pending auth slice')
   state.isChecking = true;
 };
 const handleRejected = (state, action) => {
@@ -18,6 +19,7 @@ const handleRejected = (state, action) => {
 };
 
 const handleFulfiledPartly = state => {
+  console.log('fullfiled auth slice');
   state.isChecking = false;
   state.error = null;
 };
@@ -30,6 +32,7 @@ const authSlice = createSlice({
       .addCase(opAuth.register.pending, handlePending)
       .addCase(opAuth.register.fulfilled, (state, action) => {
         handleFulfiledPartly(state);
+        console.log(action)
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;

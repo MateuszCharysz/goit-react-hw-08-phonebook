@@ -37,7 +37,6 @@ export const App = () => {
 
   return (
     <div className={css.container}>
-      <h1>Phonebook</h1>
       <Form />
       <h2>Contacts</h2>
       <Input
