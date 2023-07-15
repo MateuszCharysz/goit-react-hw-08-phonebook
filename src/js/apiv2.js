@@ -2,7 +2,7 @@ import axios from 'axios';
 const API_ID = 'connections-api';
 const errorHandler = error => {
   if (error.response.status === 400) {
-    alert("We're sorry, but you've reached the end of search results.");
+    alert("We're sorry, error on user side");
   } else if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
@@ -22,14 +22,14 @@ const errorHandler = error => {
 };
 
 const contApi = axios.create({
-  baseURL: `https://${API_ID}.mockapi.io`,
+  baseURL: `https://${API_ID}.herokuapp.com`,
   timeout: 10000,
 });
 
 const setAuthHeader = token =>
   (contApi.defaults.headers.common['Authorisation'] = `Bearer ${token}`);
 
-  const clearAuthHeader = token =>
+  const clearAuthHeader = ()=>
     contApi.defaults.headers.common['Authorisation'] = '';
 
 const contApiGet = async () => {

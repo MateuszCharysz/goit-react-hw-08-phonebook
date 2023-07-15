@@ -4,12 +4,12 @@
     font-weight: bold;
     align-items: center;
     flex-wrap: wrap;
-        flex: 0 1 auto;
+        flex: 1 1 auto;
 }
 
 .input {
-    width: 100%;
+    
     margin: 5px;
     display: block;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
 }

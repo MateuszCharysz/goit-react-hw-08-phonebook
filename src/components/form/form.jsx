@@ -35,38 +35,42 @@ export const Form = () => {
       setNumber(value);
     }
   };
-
+const idForLabelAndAddContacts = nanoid();
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        submitForm();
-        formReset();
-      }}
-      className={css.form}
-    >
-      <Input
-        label="Name"
-        type="text"
-        dataName="name"
-        validation="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        funcChange={changeHandler}
-        stateField={name}
-      />
-      <Input
-        label="Number"
-        type="tel"
-        dataName="number"
-        validation="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        funcChange={changeHandler}
-        stateField={number}
-      />
-      <Button label="Add contact" typeOfBtn="submit" />
-    </form>
+    <>
+      <label className={css.form__label} htmlFor={idForLabelAndAddContacts}>Add contact</label>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          submitForm();
+          formReset();
+        }}
+        className={css.form}
+        id={idForLabelAndAddContacts}
+      >
+        <Input
+          label="Name"
+          type="text"
+          dataName="name"
+          validation="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          funcChange={changeHandler}
+          stateField={name}
+        />
+        <Input
+          label="Number"
+          type="tel"
+          dataName="number"
+          validation="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          funcChange={changeHandler}
+          stateField={number}
+        />
+        <Button label="Add contact" typeOfBtn="submit" />
+      </form>
+    </>
   );
 };
 

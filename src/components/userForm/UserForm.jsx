@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import opAuth from 'redux/auth/opAuth';
 
 const UserForm = ({ typeOfForm }) => {
+  console.log(typeOfForm)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,12 +21,19 @@ const UserForm = ({ typeOfForm }) => {
     }
   };
   const handleSubmitReg = (name, email, pass) => {
-    const credentials = { name: name, email: email, password: pass };
+    let credentials = {
+      name: `${name}`,
+      email: `${email}`,
+      password: `${pass}`,
+    };
+    // credentials = { name: name, email: email, password: pass };
     dispatch(opAuth.register(credentials));
   };
 
   const handleSubmitLog = (email, pass) => {
     const credentials = { email: email, password: pass };
+    console.log(typeof email)
+    
     dispatch(opAuth.logIn(credentials));
   };
 

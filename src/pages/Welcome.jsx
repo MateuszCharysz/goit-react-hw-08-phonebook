@@ -10,7 +10,7 @@ const Welcome = () => {
         <p>
           Below is Phonebook sandbox made with mockapi.io. If you register - you
           can register with fake data - you will recive acces to individual
-          phonelist.
+          phonelist. Backend of user data - connections-api.herokuapp.com/docs.
         </p>
       </div>
       <App />

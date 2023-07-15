@@ -38,7 +38,6 @@ export const App = () => {
   return (
     <div className={css.container}>
       <Form />
-      <h2>Contacts</h2>
       <Input
         label="Find contacts by name"
         type="text"
