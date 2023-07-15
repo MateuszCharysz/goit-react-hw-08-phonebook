@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/button/button';
+import css from './contact-list.module.css';
 
 const ContactList = ({ arr, btnHandler }) => {
   return (
-    <ul>
+    <ul className={css.contactList}>
       {arr.map(({ id, name, number }) => (
-        <li key={id}>{`${name} ${number}`} <Button label='Delete' typeOfBtn='button' btnFunc={() => btnHandler(id)}/></li>
+        <li className={css.contactList__item} key={id}>{`${name} ${number}`} <Button label='Delete' typeOfBtn='button' btnFunc={() => btnHandler(id)}/></li>
       ))}
     </ul>
   );

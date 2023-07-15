@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import { Form } from './form/form';
 import Input from './input/input';
 import ContactList from './contact-list/contact-list';
-import css from './App.module.css';
+import css from './Sandbox.module.css';
 import {
   selectFilter,
   selectFiltered,
   selectError,
   selectLoading,
-} from '../redux/contacts/selectors';
+} from '../redux/sandbox/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../redux/contacts/filterSlice';
-import operations from 'redux/contacts/opContacts';
+import { setFilter } from '../redux/sandbox/filterSlice';
+import operations from 'redux/sandbox/opContacts';
 
 export const App = () => {
   const dispatch = useDispatch();
