@@ -4,7 +4,7 @@ import css from './pages.module.css';
 
 const Welcome = () => {
   return (
-    <>
+    <div className={css.background}>
       <div className={css.container}>
         <h1>Welcome to Phonebook by Mateusz</h1>
         <p>
@@ -14,7 +14,7 @@ const Welcome = () => {
         </p>
       </div>
       <App />
-    </>
+    </div>
   );
 };
 

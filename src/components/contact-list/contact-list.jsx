@@ -7,7 +7,15 @@ const ContactList = ({ arr, btnHandler }) => {
   return (
     <ul className={css.contactList}>
       {arr.map(({ id, name, number }) => (
-        <li className={css.contactList__item} key={id}>{`${name} ${number}`} <Button label='Delete' typeOfBtn='button' btnFunc={() => btnHandler(id)}/></li>
+        <li className={css.contactList__item} key={id}>
+          <p className={css.contactList__name}>{`${name}`}</p>
+          <p className={css.contactList__number}> {`${number}`}</p>{' '}
+          <Button
+            label="Delete"
+            typeOfBtn="button"
+            btnFunc={() => btnHandler(id)}
+          />
+        </li>
       ))}
     </ul>
   );
@@ -21,7 +29,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     }),
   ),
-  btnHandler: PropTypes.func.isRequired
+  btnHandler: PropTypes.func.isRequired,
 };
 
 export default ContactList;

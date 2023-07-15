@@ -1,10 +1,14 @@
 .label {
-    display: block;
+    display: flex;
     font-size: 20px;
     font-weight: bold;
+    align-items: center;
+    flex-wrap: wrap;
+        flex: 0 1 auto;
 }
 
 .input {
-    margin: 20px;
+    margin: 5px;
     display: block;
+    flex: 0 1 auto;
 }

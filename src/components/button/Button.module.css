@@ -1,9 +1,11 @@
 .btn {
-    background-color: aquamarine;
+    border-radius: 2px;
+    background-color: transparent;
 }
 
 .btn:hover {
     cursor: pointer;
+    background-color: #8d8d8d;
 }
 
 .btn:active {

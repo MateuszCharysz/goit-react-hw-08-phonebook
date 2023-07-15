@@ -21,11 +21,13 @@ const UserForm = ({ typeOfForm }) => {
   };
   const handleSubmitReg = (name, email, pass) => {
     const credentials = { name: name, email: email, password: pass };
-    console.log(credentials)
     dispatch(opAuth.register(credentials));
   };
 
-  const handleSubmitLog = (email, pass) => {};
+  const handleSubmitLog = (email, pass) => {
+    const credentials = { email: email, password: pass };
+    dispatch(opAuth.logIn(credentials));
+  };
 
   const handleSubmit = (typeOfForm, name, email, pass) => {
     if (typeOfForm === 'Register') {
@@ -61,7 +63,6 @@ const UserForm = ({ typeOfForm }) => {
           label="User Name"
           type="text"
           dataName="name"
-          
           title="User name for server"
           required
           funcChange={handleChangeUser}
@@ -72,7 +73,6 @@ const UserForm = ({ typeOfForm }) => {
         label="Email"
         type="email"
         dataName="email"
-        
         title="Should look like smth@and.so.on"
         required
         funcChange={handleChangeUser}
@@ -82,7 +82,6 @@ const UserForm = ({ typeOfForm }) => {
         label="Password"
         type="password"
         dataName="password"
-        
         title="Should be secret"
         required
         funcChange={handleChangeUser}
