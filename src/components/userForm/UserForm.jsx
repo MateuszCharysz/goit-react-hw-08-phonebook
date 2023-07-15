@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Input from 'components/input/input';
 import { useDispatch } from 'react-redux';
 import opAuth from 'redux/auth/opAuth';
+import css from './UserForm.module.css'
 
 const UserForm = ({ typeOfForm }) => {
   console.log(typeOfForm)
@@ -57,48 +58,50 @@ const UserForm = ({ typeOfForm }) => {
       setPassword(value);
     }
   };
-
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        handleSubmit(typeOfForm, name, email, password);
-        formReset();
-      }}
-    >
-      {typeOfForm === 'Register' && (
+    <>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          handleSubmit(typeOfForm, name, email, password);
+          formReset();
+        }}
+        className={css.container + ' ' + css.form}
+      >
+        {typeOfForm === 'Register' && (
+          <Input
+            label="User Name"
+            type="text"
+            dataName="name"
+            title="User name for server"
+            required
+            funcChange={handleChangeUser}
+            stateField={name}
+          />
+        )}
         <Input
-          label="User Name"
-          type="text"
-          dataName="name"
-          title="User name for server"
+          label="Email"
+          type="email"
+          dataName="email"
+          title="Should look like smth@and.so.on"
           required
           funcChange={handleChangeUser}
-          stateField={name}
+          stateField={email}
         />
-      )}
-      <Input
-        label="Email"
-        type="email"
-        dataName="email"
-        title="Should look like smth@and.so.on"
-        required
-        funcChange={handleChangeUser}
-        stateField={email}
-      />
-      <Input
-        label="Password"
-        type="password"
-        dataName="password"
-        title="Should be secret"
-        required
-        funcChange={handleChangeUser}
-        stateField={password}
-      />
-      <button type="submit">
-        {typeOfForm === 'Register' ? typeOfForm : 'Log In'}
-      </button>
-    </form>
+        <Input
+          label="Password"
+          type="password"
+          dataName="password"
+          title="Should be secret"
+          required
+          funcChange={handleChangeUser}
+          stateField={password}
+        />
+        <button type="submit" className={css.btn}>
+          {typeOfForm === 'Register' ? typeOfForm : 'Log In'}
+        </button>
+      </form>
+    </>
   );
 };
 //TODO valid invalid CSS for inputs

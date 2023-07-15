@@ -4,12 +4,13 @@
     font-weight: bold;
     align-items: center;
     flex-wrap: wrap;
-        flex: 1 1 auto;
+    flex: 1 1 auto;
+    gap: 5px
 }
 
 .input {
-    
-    margin: 5px;
+
+    margin: 0px;
     display: block;
     flex: 1 1 auto;
 }
