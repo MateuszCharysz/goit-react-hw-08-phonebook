@@ -1,5 +1,5 @@
 import React from 'react';
-import App from 'components/Sandbox';
+import Sandbox from 'components/sandbox/Sandbox';
 import css from './pages.module.css';
 
 const Welcome = () => {
@@ -13,7 +13,7 @@ const Welcome = () => {
           phonelist. Backend of user data - connections-api.herokuapp.com/docs.
         </p>
       </div>
-      <App />
+      <Sandbox/>
     </div>
   );
 };

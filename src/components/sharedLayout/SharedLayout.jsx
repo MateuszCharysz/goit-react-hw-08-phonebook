@@ -1,36 +1,18 @@
 import React, { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 import css from './SharedLayout.module.css';
+import { useAuthRoute } from 'hook/useAuthRoute';
+import SharedLayoutRest from 'components/sharedLayoutRest/SharedLayoutRest';
+import SharedLayoutPriv from 'components/sharedLayoutPriv/SharedLayoutPriv';
 
 const SharedLayout = () => {
+  const { isLoggedIn } = useAuthRoute();
   return (
     <>
       <header className={css.header}>
         <nav className={css.header__nav}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? css.active : css.header__link
-            }
-          >
-            Phonebook
-          </NavLink>
-          <NavLink
-            to="/register"
-            className={({ isActive }) =>
-              isActive ? css.active : css.header__link
-            }
-          >
-            Register
-          </NavLink>
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive ? css.active : css.header__link
-            }
-          >
-            Login
-          </NavLink>
+
+          {isLoggedIn ? <SharedLayoutPriv /> : <SharedLayoutRest />}
         </nav>
       </header>
       <Suspense fallback={<h2>Lazy loading in action</h2>}>

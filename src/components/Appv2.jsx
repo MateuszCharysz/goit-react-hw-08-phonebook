@@ -2,6 +2,8 @@ import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Welcome from '../pages/Welcome';
 import SharedLayout from './sharedLayout/SharedLayout';
+import PrivateRoute from 'js/PrivateRoute';
+import RestrictedRoute from 'js/RestricredRoute';
 
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
@@ -15,18 +17,24 @@ const Appv2 = () => {
           <Route index element={<Welcome />} />
           <Route
             path="register"
-            element={<Register />}
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Register />} />
+            }
           />
-          <Route path="login" element={<Login />} />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            }
+          />
           <Route
             path="contacts"
-            element={<Contacts />}
+            element={
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+            }
           />
         </Route>
-        <Route
-          path="*"
-          element={<Navigate to="/" />}
-        />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

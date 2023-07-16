@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { Form } from './form/form';
-import Input from './input/input';
-import ContactList from './contact-list/contact-list';
+import { Form } from '../form/form';
+import Input from '../input/input';
+import ContactList from '../contact-list/contact-list';
 import css from './Sandbox.module.css';
 import {
   selectFilter,
   selectFiltered,
   selectError,
   selectLoading,
-} from '../redux/sandbox/selectors';
+} from '../../redux/sandbox/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../redux/sandbox/filterSlice';
+import { setFilter } from '../../redux/sandbox/filterSlice';
 import operations from 'redux/sandbox/opContacts';
 
-export const App = () => {
+export const Sandbox = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const filtered = useSelector(selectFiltered);
@@ -53,4 +53,4 @@ export const App = () => {
   );
 };
 
-export default App;
+export default Sandbox;

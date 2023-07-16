@@ -1,17 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-// import UserFormLog from 'components/userFormLog/UserFormLog';
+
+import css from './pages.module.css';
 import UserForm from 'components/userForm/UserForm';
 
 const Login = () => {
   return (
-    <>
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
-      <UserForm typeOfForm={'Login'}></UserForm>
-      {/* <UserFormLog></UserFormLog> */}
-    </>
+    <div className={css.background}>
+      <div className={css.container}>
+        <UserForm typeOfForm={'Login'}></UserForm>
+      </div>
+    </div>
   );
 };
 

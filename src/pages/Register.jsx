@@ -6,9 +6,10 @@ import css from './pages.module.css'
 const Register = () => {
   return (
     <div className={css.background}>
-
-      <UserForm typeOfForm={'Register'}></UserForm>
-      {/* <UserFormReg></UserFormReg> */}
+      <div className={css.container}>
+        <UserForm typeOfForm={'Register'}></UserForm>
+        
+      </div>
     </div>
   );
 };
