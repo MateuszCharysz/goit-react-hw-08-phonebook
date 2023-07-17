@@ -6,14 +6,14 @@ const SharedLayoutRest = () => {
   return (
     <>
       <NavLink
-        to="/"
+        to="/goit-react-hw-08-phonebook"
         className={({ isActive }) => (isActive ? css.active : css.header__link)}
       >
         Phonebook
       </NavLink>
       <div className={css.header__sub}>
         <NavLink
-          to="/register"
+          to="/goit-react-hw-08-phonebook/register"
           className={({ isActive }) =>
             isActive ? css.active : css.header__link
           }
@@ -21,7 +21,7 @@ const SharedLayoutRest = () => {
           Register
         </NavLink>
         <NavLink
-          to="/login"
+          to="/goit-react-hw-08-phonebook/login"
           className={({ isActive }) =>
             isActive ? css.active : css.header__link
           }

@@ -13,28 +13,40 @@ const Appv2 = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
+        <Route path="/goit-react-hw-08-phonebook" element={<SharedLayout />}>
           <Route index element={<Welcome />} />
           <Route
             path="register"
             element={
-              <RestrictedRoute redirectTo="/contacts" component={<Register />} />
+              <RestrictedRoute
+                redirectTo="/goit-react-hw-08-phonebook/contacts"
+                component={<Register />}
+              />
             }
           />
           <Route
             path="login"
             element={
-              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+              <RestrictedRoute
+                redirectTo="/goit-react-hw-08-phonebook/contacts"
+                component={<Login />}
+              />
             }
           />
           <Route
             path="contacts"
             element={
-              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+              <PrivateRoute
+                redirectTo="/goit-react-hw-08-phonebook/login"
+                component={<Contacts />}
+              />
             }
           />
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route
+          path="*"
+          element={<Navigate to="/goit-react-hw-08-phonebook" />}
+        />
       </Routes>
     </>
   );
