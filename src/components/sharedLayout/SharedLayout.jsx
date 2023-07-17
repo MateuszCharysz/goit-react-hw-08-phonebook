@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import css from './SharedLayout.module.css';
 import { useAuthRoute } from 'hook/useAuthRoute';
 import SharedLayoutRest from 'components/sharedLayoutRest/SharedLayoutRest';

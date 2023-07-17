@@ -1,8 +1,9 @@
 import React from 'react'
+import ContactsApp from 'components/contactsApp/ContactsApp'
 
 const Contacts = () => {
   return (
-    <div>Contacts</div>
+    <ContactsApp/>
   )
 }
 

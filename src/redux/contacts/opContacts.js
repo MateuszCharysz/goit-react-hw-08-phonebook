@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import api, { getPromiseData } from '../../js/api'
+import apiv2, { getPromiseData } from 'js/apiv2';
 
 export const fetchContactsToDisplay = createAsyncThunk(
-  'contacts/fetchAll',
+  'contacts/get',
   async (_, thunkAPI) => {
     try {
-      const response = await getPromiseData(api.mockApiGet());
+      const response = await getPromiseData(apiv2.contApiGet());
       return response;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -14,10 +14,10 @@ export const fetchContactsToDisplay = createAsyncThunk(
 );
 
 const postContactOnList = createAsyncThunk(
-  'contacts/addContact',
+  'contacts/post',
   async (data, thunkAPI) => {
     try {
-      const response = await getPromiseData(api.mockApiPost(data));
+      const response = await getPromiseData(apiv2.contApiNew(data));
       return response;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -26,10 +26,10 @@ const postContactOnList = createAsyncThunk(
 );
 
 const deleteContact = createAsyncThunk(
-  'contacts/deleteContact',
+  'contacts/:contactId',
   async (id, thunkAPI) => {
     try {
-      const response = await getPromiseData(api.mockApiDelete(id));
+      const response = await getPromiseData(apiv2.contApiDelete(id));
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
