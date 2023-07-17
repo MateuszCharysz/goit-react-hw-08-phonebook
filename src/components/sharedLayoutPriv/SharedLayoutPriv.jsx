@@ -17,7 +17,7 @@ const SharedLayoutPriv = () => {
   return (
     <>
       <NavLink
-        to="/contacts"
+        to="/goit-react-hw-08-phonebook/contacts"
         className={({ isActive }) => (isActive ? css.active : css.header__link)}
       >
         Phonebook
