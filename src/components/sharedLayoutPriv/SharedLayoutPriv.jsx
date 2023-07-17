@@ -11,7 +11,7 @@ const SharedLayoutPriv = () => {
   const { user } = useAuthRoute();
 
   const btnHandler = () => {
-    dispatch(opAuth.logOut);
+    dispatch(opAuth.logOut());
   };
 
   return (

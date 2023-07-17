@@ -11,7 +11,7 @@ import {
 } from '../../redux/sandbox/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/sandbox/filterSlice';
-import operations from 'redux/sandbox/opContacts';
+import opSandbox from 'redux/sandbox/opSandbox';
 
 export const Sandbox = () => {
   const dispatch = useDispatch();
@@ -28,11 +28,11 @@ export const Sandbox = () => {
   };
 
   const removeContact = id => {
-    dispatch(operations.deleteContact(id));
+    dispatch(opSandbox.deleteContactSandbox(id));
   };
 
   useEffect(() => {
-    dispatch(operations.fetchContactsToDisplay());
+    dispatch(opSandbox.fetchSandboxToDisplay());
   }, [dispatch]);
 
   return (

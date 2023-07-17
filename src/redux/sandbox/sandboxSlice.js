@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import operations from './opContacts';
+import opSandbox from './opSandbox';
 
 const sandboxInitialState = { contacts: [], isLoading: false, error: null };
 
@@ -21,27 +21,27 @@ const sandboxSlice = createSlice({
   initialState: sandboxInitialState,
   extraReducers: builder => {
     builder
-      .addCase(operations.fetchContactsToDisplay.pending, handlePending)
-      .addCase(operations.fetchContactsToDisplay.fulfilled, (state, action) => {
+      .addCase(opSandbox.fetchSandboxToDisplay.pending, handlePending)
+      .addCase(opSandbox.fetchSandboxToDisplay.fulfilled, (state, action) => {
         handleFulfiledPartly(state);
         state.contacts = action.payload;
       })
-      .addCase(operations.fetchContactsToDisplay.rejected, handleRejected)
-      .addCase(operations.postContactOnList.pending, handlePending)
-      .addCase(operations.postContactOnList.fulfilled, (state, action) => {
+      .addCase(opSandbox.fetchSandboxToDisplay.rejected, handleRejected)
+      .addCase(opSandbox.postSandboxOnList.pending, handlePending)
+      .addCase(opSandbox.postSandboxOnList.fulfilled, (state, action) => {
         handleFulfiledPartly(state);
         state.contacts.push(action.payload);
       })
-      .addCase(operations.postContactOnList.rejected, handleRejected)
-      .addCase(operations.deleteContact.pending, handlePending)
-      .addCase(operations.deleteContact.fulfilled, (state, action) => {
+      .addCase(opSandbox.postSandboxOnList.rejected, handleRejected)
+      .addCase(opSandbox.deleteContactSandbox.pending, handlePending)
+      .addCase(opSandbox.deleteContactSandbox.fulfilled, (state, action) => {
         handleFulfiledPartly(state);
         const index = state.contacts.findIndex(
           contact => contact.id === action.payload.id,
         );
         state.contacts.splice(index, 1);
       })
-      .addCase(operations.deleteContact.rejected, handleRejected);
+      .addCase(opSandbox.deleteContactSandbox.rejected, handleRejected);
   },
 });
 

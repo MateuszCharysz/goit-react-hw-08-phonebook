@@ -1,10 +1,13 @@
-import React from 'react'
-import ContactsApp from 'components/contactsApp/ContactsApp'
+import React from 'react';
+import ContactsApp from 'components/contactsApp/ContactsApp';
+import css from './pages.module.css'
 
 const Contacts = () => {
   return (
-    <ContactsApp/>
-  )
-}
+    <div className={css.background}>
+      <ContactsApp />
+    </div>
+  );
+};
 
-export default Contacts
+export default Contacts;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import css from './pages.module.css';
 import UserForm from 'components/userForm/UserForm';
 

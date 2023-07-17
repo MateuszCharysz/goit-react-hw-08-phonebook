@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Input from 'components/input/input';
 import { useDispatch } from 'react-redux';
 import opAuth from 'redux/auth/opAuth';
-import css from './UserForm.module.css'
+import css from './UserForm.module.css';
 
 const UserForm = ({ typeOfForm }) => {
-  console.log(typeOfForm)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,28 +21,27 @@ const UserForm = ({ typeOfForm }) => {
     }
   };
   const handleSubmitReg = (name, email, pass) => {
-    let credentials = {
-      name: `${name}`,
-      email: `${email}`,
-      password: `${pass}`,
-    };
-    // credentials = { name: name, email: email, password: pass };
-    dispatch(opAuth.register(credentials));
+    if (pass.length < 6) {
+      alert('Password must be at least 7 characters long');
+    } else {
+      let credentials = {
+        name: `${name}`,
+        email: `${email}`,
+        password: `${pass}`,
+      };
+      dispatch(opAuth.register(credentials));
+    }
   };
 
   const handleSubmitLog = (email, pass) => {
     const credentials = { email: email, password: pass };
-    console.log(typeof email)
-    
     dispatch(opAuth.logIn(credentials));
   };
 
   const handleSubmit = (typeOfForm, name, email, pass) => {
     if (typeOfForm === 'Register') {
-      console.log('handleSubmitReg');
       handleSubmitReg(name, email, pass);
     } else {
-      console.log('handleSubmitLog');
       handleSubmitLog(email, pass);
     }
   };
@@ -104,5 +102,4 @@ const UserForm = ({ typeOfForm }) => {
     </>
   );
 };
-//TODO valid invalid CSS for inputs
 export default UserForm;

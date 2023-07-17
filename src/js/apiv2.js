@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_ID = 'connections-api';
+const API_ID_V2 = 'connections-api';
 const errorHandler = error => {
   if (error.response.status === 400) {
     alert("We're sorry, error on user side");
@@ -22,15 +22,15 @@ const errorHandler = error => {
 };
 
 const contApi = axios.create({
-  baseURL: `https://${API_ID}.herokuapp.com`,
+  baseURL: `https://${API_ID_V2}.herokuapp.com`,
   timeout: 10000,
 });
 
 const setAuthHeader = token =>
-  (contApi.defaults.headers.common['Authorisation'] = `Bearer ${token}`);
+  (contApi.defaults.headers.common['Authorization'] = `${token}`);
 
   const clearAuthHeader = ()=>
-    contApi.defaults.headers.common['Authorisation'] = '';
+    contApi.defaults.headers.common['Authorization'] = '';
 
 const contApiGet = async () => {
   const response = await contApi.get('/contacts').catch(e => errorHandler(e));
@@ -75,7 +75,6 @@ const contApiUserLogin = async ObjEmailPass => {
 };
 
 const contApiUserLogout = async () => {
-  //TOKEN NEEDED
   const response = await contApi
     .post('/users/logout')
     .catch(e => errorHandler(e));
@@ -84,7 +83,6 @@ const contApiUserLogout = async () => {
 };
 
 const contApiUserCurrent = async () => {
-  //TOKEN NEEDED
   const response = await contApi
     .get('/users/current')
     .catch(e => errorHandler(e));

@@ -51,10 +51,10 @@ export const getPromiseData = async promise =>
   await promise.then(data => {
     return data;
   });
-const api = {
+const mock = {
   mockApiGet,
   mockApiPost,
   mockApiDelete,
   getPromiseData,
 };
-export default api;
+export default mock;
