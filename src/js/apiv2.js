@@ -82,7 +82,8 @@ const contApiUserLogout = async () => {
   return response.data;
 };
 
-const contApiUserCurrent = async () => {
+const contApiUserCurrent = async (token) => {
+  setAuthHeader(token)
   const response = await contApi
     .get('/users/current')
     .catch(e => errorHandler(e));

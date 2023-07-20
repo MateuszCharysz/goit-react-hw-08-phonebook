@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isChecking: false,
+  isRefreshing: false,
   error: null,
 };
 
@@ -50,7 +51,17 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(opAuth.logOut.rejected, handleRejected),
+      .addCase(opAuth.logOut.rejected, handleRejected)
+      .addCase(opAuth.refresh.pending, handlePending, (state, action)=>{
+        state.isRefreshing=true
+      })
+      .addCase(opAuth.refresh.fulfilled, (state, action) => {
+        state.isChecking = false;
+        state.user = action.payload;
+        state.isLoggedIn = true;
+      })
+      .addCase(opAuth.refresh.rejected, handleRejected, (state, action)=>{
+        state.isRefreshing= false} )
 });
 
 export const authReducer = authSlice.reducer;
