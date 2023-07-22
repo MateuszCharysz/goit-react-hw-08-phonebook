@@ -3,8 +3,10 @@ import Input from 'components/input/input';
 import { useDispatch } from 'react-redux';
 import opAuth from 'redux/auth/opAuth';
 import css from './UserForm.module.css';
+import { useColor } from 'components/colorContext/ColorContext';
 
 const UserForm = ({ typeOfForm }) => {
+      const { colorTheme } = useColor();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -64,7 +66,11 @@ const UserForm = ({ typeOfForm }) => {
           handleSubmit(typeOfForm, name, email, password);
           formReset();
         }}
-        className={css.container + ' ' + css.form}
+        className={
+          colorTheme === 'dark'
+            ? css.container + ' ' + css.form + ' ' + css.isDarkOne
+            : css.container + ' ' + css.form
+        }
       >
         {typeOfForm === 'Register' && (
           <Input

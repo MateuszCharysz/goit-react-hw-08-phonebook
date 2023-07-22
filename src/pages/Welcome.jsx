@@ -1,10 +1,19 @@
 import React from 'react';
 import Sandbox from 'components/sandbox/Sandbox';
 import css from './pages.module.css';
+import d from '../components/colorContext/ColorContext.module.css';
+import { useColor } from 'components/colorContext/ColorContext';
 
 const Welcome = () => {
+  const { colorTheme } = useColor();
   return (
-    <div className={css.background}>
+    <div
+      className={
+        colorTheme === 'dark'
+          ? css.background + ' ' + d.isDarkOne
+          : css.background
+      }
+    >
       <div className={css.container}>
         <h1>Welcome to Phonebook by Mateusz</h1>
         <p>
@@ -13,7 +22,7 @@ const Welcome = () => {
           phonelist. Backend of user data - connections-api.herokuapp.com/docs.
         </p>
       </div>
-      <Sandbox/>
+      <Sandbox />
     </div>
   );
 };

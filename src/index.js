@@ -7,15 +7,18 @@ import 'modern-normalize';
 import './index.css';
 import Appv2 from 'components/Appv2';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ColorProvider } from 'components/colorContext/ColorContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Appv2 />
-        </BrowserRouter>
-      </PersistGate>
+      <ColorProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <Appv2 />
+          </BrowserRouter>
+        </PersistGate>
+      </ColorProvider>
     </Provider>
   </React.StrictMode>,
 );

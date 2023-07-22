@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/selectors';
 import operations from 'redux/contacts/opContacts';
 import { nanoid } from '@reduxjs/toolkit';
+import { useColor } from 'components/colorContext/ColorContext';
 
 export const Form = () => {
+  const { colorTheme } = useColor();
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
@@ -35,17 +37,21 @@ export const Form = () => {
       setNumber(value);
     }
   };
-const idForLabelAndAddContacts = nanoid();
+  const idForLabelAndAddContacts = nanoid();
   return (
     <>
-      <label className={css.form__label} htmlFor={idForLabelAndAddContacts}>Add contact</label>
+      <label className={css.form__label} htmlFor={idForLabelAndAddContacts}>
+        Add contact
+      </label>
       <form
         onSubmit={e => {
           e.preventDefault();
           submitForm();
           formReset();
         }}
-        className={css.form}
+        className={
+          colorTheme === 'dark' ? css.form + ' ' + css.isDarkOne : css.form
+        }
         id={idForLabelAndAddContacts}
       >
         <Input
