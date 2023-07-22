@@ -6,7 +6,7 @@ import css from './UserForm.module.css';
 import { useColor } from 'components/colorContext/ColorContext';
 
 const UserForm = ({ typeOfForm }) => {
-      const { colorTheme } = useColor();
+  const { colorTheme } = useColor();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -101,7 +101,12 @@ const UserForm = ({ typeOfForm }) => {
           funcChange={handleChangeUser}
           stateField={password}
         />
-        <button type="submit" className={css.btn}>
+        <button
+          type="submit"
+          className={
+            colorTheme === 'dark' ? css.btn + ' ' + css.btnDark : css.btn
+          }
+        >
           {typeOfForm === 'Register' ? typeOfForm : 'Log In'}
         </button>
       </form>

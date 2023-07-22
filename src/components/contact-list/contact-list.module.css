@@ -13,7 +13,6 @@
     display: flex;
     align-items: center;
     gap: 5px
-    
 }
 
 .contactList__name {
@@ -31,4 +30,9 @@
 
 .contactList__item:last-child {
     border-bottom: 0px;
+}
+
+.isDarkTwo {
+    background-color: #8d8d8d;
+    color: #dfdfdf
 }

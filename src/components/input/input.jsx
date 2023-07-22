@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Input.module.css';
 import { nanoid } from '@reduxjs/toolkit';
+import { useColor } from 'components/colorContext/ColorContext';
 
 const Input = ({
   label,
@@ -13,11 +14,19 @@ const Input = ({
   stateField,
 }) => {
   const idForLabelAndInput = nanoid();
+  const {colorTheme} = useColor()
   return (
-    <label className={css.label} htmlFor={idForLabelAndInput}>
+    <label
+      className={
+         css.label
+      }
+      htmlFor={idForLabelAndInput}
+    >
       {label}
       <input
-        className={css.input}
+        className={
+          colorTheme === 'dark' ? css.input + ' ' + css.isDarkOne : css.input
+        }
         type={type}
         name={dataName}
         pattern={validation}
